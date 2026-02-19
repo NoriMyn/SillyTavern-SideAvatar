@@ -1,34 +1,31 @@
-/* Side Avatar - Аватарка и текст как единое целое */
+/* Side Avatar - только для сообщений персонажей в чате */
 
-/* Контейнер сообщения - единый блок */
-.mes {
+/* Контейнер сообщения персонажа */
+#chat .mes:not(.mes_user):not(.mes_system) {
     display: flex !important;
     flex-direction: row !important;
     align-items: stretch !important;
     gap: 0 !important;
     margin-bottom: 25px !important;
     background: linear-gradient(to right,
-        rgba(15, 15, 25, 0.4) 0%,
-        rgba(20, 20, 30, 0.7) 30%,
-        rgba(25, 25, 35, 0.8) 100%) !important;
+        rgba(15, 15, 25, 0.3) 0%,
+        rgba(20, 20, 30, 0.5) 30%,
+        rgba(25, 25, 35, 0.6) 100%) !important;
     border-radius: 15px !important;
     overflow: hidden !important;
-    backdrop-filter: blur(10px) !important;
 }
 
-/* Аватарка персонажа - часть единого блока */
-.mes:not(.mes_user) .avatar {
+/* Аватарка персонажа */
+#chat .mes:not(.mes_user):not(.mes_system) .avatar {
     flex-shrink: 0 !important;
     width: 280px !important;
-    height: auto !important;
     min-height: 350px !important;
     order: -1 !important;
-    position: relative !important;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-.mes:not(.mes_user) .avatar img {
+#chat .mes:not(.mes_user):not(.mes_system) .avatar img {
     width: 100% !important;
     height: 100% !important;
     min-height: 350px !important;
@@ -38,18 +35,18 @@
     display: block !important;
     mask-image: linear-gradient(to right,
         rgba(0,0,0,1) 0%,
-        rgba(0,0,0,1) 70%,
-        rgba(0,0,0,0.5) 90%,
+        rgba(0,0,0,1) 65%,
+        rgba(0,0,0,0.4) 88%,
         rgba(0,0,0,0) 100%) !important;
     -webkit-mask-image: linear-gradient(to right,
         rgba(0,0,0,1) 0%,
-        rgba(0,0,0,1) 70%,
-        rgba(0,0,0,0.5) 90%,
+        rgba(0,0,0,1) 65%,
+        rgba(0,0,0,0.4) 88%,
         rgba(0,0,0,0) 100%) !important;
 }
 
-/* Текст сообщения - продолжение блока */
-.mes .mes_block {
+/* Текст сообщения персонажа */
+#chat .mes:not(.mes_user):not(.mes_system) .mes_block {
     flex: 1 !important;
     min-width: 0 !important;
     padding: 20px 25px !important;
@@ -59,69 +56,43 @@
     justify-content: center !important;
 }
 
-.mes .mes_text {
-    font-size: 15px !important;
-    line-height: 1.7 !important;
-    color: rgba(255, 255, 255, 0.95) !important;
-}
-
-/* Имя персонажа */
-.mes .ch_name {
-    margin-bottom: 10px !important;
-}
-
-/* Аватарка юзера - обычная */
-.mes.mes_user {
-    background: rgba(30, 25, 40, 0.6) !important;
-    flex-direction: row-reverse !important;
-}
-
-.mes.mes_user .avatar {
-    width: 100px !important;
-    height: 100px !important;
-    min-height: auto !important;
-    margin: 15px !important;
-}
-
-.mes.mes_user .avatar img {
-    min-height: auto !important;
-    border-radius: 10px !important;
-    mask-image: none !important;
-    -webkit-mask-image: none !important;
+/* Сообщения юзера - БЕЗ изменений */
+#chat .mes.mes_user .avatar {
+    /* Оставляем как есть */
 }
 
 /* Адаптив */
 @media (max-width: 1400px) {
-    .mes:not(.mes_user) .avatar {
+    #chat .mes:not(.mes_user):not(.mes_system) .avatar {
         width: 220px !important;
         min-height: 280px !important;
     }
-    .mes:not(.mes_user) .avatar img {
+    #chat .mes:not(.mes_user):not(.mes_system) .avatar img {
         min-height: 280px !important;
     }
 }
 
 @media (max-width: 1024px) {
-    .mes:not(.mes_user) .avatar {
+    #chat .mes:not(.mes_user):not(.mes_system) .avatar {
         width: 180px !important;
         min-height: 220px !important;
     }
-    .mes:not(.mes_user) .avatar img {
+    #chat .mes:not(.mes_user):not(.mes_system) .avatar img {
         min-height: 220px !important;
     }
 }
 
 @media (max-width: 768px) {
-    .mes {
+    #chat .mes:not(.mes_user):not(.mes_system) {
         flex-direction: column !important;
     }
-    .mes .avatar {
+    #chat .mes:not(.mes_user):not(.mes_system) .avatar {
         width: 100% !important;
         max-width: 200px !important;
         min-height: auto !important;
         margin: 10px auto !important;
     }
-    .mes .avatar img {
+    #chat .mes:not(.mes_user):not(.mes_system) .avatar img {
         mask-image: none !important;
         border-radius: 10px !important;
     }
