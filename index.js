@@ -1,44 +1,20 @@
-console.log("[SideAvatarLayout] init");
+// Функция для загрузки CSS
+function loadStyles() {
+    const extensionName = "SillyTavern-SideAvatar"; // Должно совпадать с папкой на GitHub
+    const styleId = "side-avatar-styles";
 
-function applyLayout() {
-  document.querySelectorAll(".mes").forEach(mes => {
-    if (mes.dataset.sideAvatarApplied) return;
-
-    const avatar = mes.querySelector(".mes_avatar");
-    const block = mes.querySelector(".mes_block");
-    if (!avatar || !block) return;
-
-    mes.dataset.sideAvatarApplied = "true";
-
-    const wrap = document.createElement("div");
-    wrap.className = "side-avatar-wrap";
-
-    if (mes.classList.contains("user")) {
-      wrap.classList.add("right");
+    if (!document.getElementById(styleId)) {
+        const link = document.createElement('link');
+        link.id = styleId;
+        link.rel = 'stylesheet';
+        // Путь идет от корня /extensions/
+        link.href = `/extensions/${extensionName}/style.css`;
+        document.head.appendChild(link);
     }
-
-    avatar.remove();
-    block.remove();
-
-    wrap.appendChild(avatar);
-    wrap.appendChild(block);
-    mes.appendChild(wrap);
-  });
 }
 
-function waitForChat() {
-  const chat = document.getElementById("chat");
-  if (!chat) {
-    setTimeout(waitForChat, 300);
-    return;
-  }
-
-  applyLayout();
-
-  new MutationObserver(applyLayout).observe(chat, {
-    childList: true,
-    subtree: true
-  });
-}
-
-waitForChat();
+// Запуск при загрузке
+(function() {
+    loadStyles();
+    console.log("Side Avatar Extension loaded!");
+})();
