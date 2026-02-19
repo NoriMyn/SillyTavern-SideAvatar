@@ -1,134 +1,92 @@
 /* =========================
-   CHAT — FULL WIDTH
+   ОСНОВА ЧАТА
 ========================= */
 
 #chat {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-right: 0 !important;
+    max-width: 92% !important;
+    width: 92% !important;
 }
 
 /* =========================
-   MESSAGE BASE
+   СООБЩЕНИЕ
 ========================= */
 
 .mes {
-    position: relative !important;
-    max-width: 100% !important;
-    overflow: visible !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 18px !important;
 }
 
 /* =========================
-   AVATAR — SIDE + VOLUME (FIXED)
+   АВАТАР
 ========================= */
 
 .mesAvatarWrapper {
-    position: absolute !important;
-    top: 0.75em !important;
-    z-index: 5 !important;
-    pointer-events: none !important;
-}
-
-/* BOT — LEFT */
-.mes:not(.user_mes) .mesAvatarWrapper {
-    left: -72px !important;
-}
-
-/* USER — RIGHT */
-.mes.user_mes .mesAvatarWrapper {
-    right: -72px !important;
+    display: block !important;
+    flex-shrink: 0 !important;
 }
 
 .mes .avatar {
-    width: 56px !important;
-    height: 56px !important;
-    overflow: hidden !important;
-    border-radius: 10px !important;
+    width: 160px !important;
+    min-width: 160px !important;
+    max-width: 160px !important;
+
+    height: auto !important;
+    max-height: none !important;
+
+    overflow: visible !important;
+    margin-top: 8px !important;
 }
 
-/* ОБЪЁМ АВАТАРА */
 .mes .avatar img {
     width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
+    height: auto !important;
 
-    box-shadow:
-        0 0 0 1px rgba(255,255,255,0.08),
-        0 10px 30px rgba(0,0,0,0.55) !important;
+    object-fit: contain !important;
+
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    /* МЯГКОЕ РАСТВОРЕНИЕ КАК В MOONLIT */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,1) 12%,
+        rgba(0,0,0,1) 88%,
+        rgba(0,0,0,0) 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,1) 12%,
+        rgba(0,0,0,1) 88%,
+        rgba(0,0,0,0) 100%
+    );
 }
 
 /* =========================
-   MESSAGE CARD — GLASS + DEPTH
+   БЛОК ТЕКСТА
 ========================= */
 
 .mes_block {
-    position: relative !important;
-    z-index: 2 !important;
+    flex: 1 !important;
 
-    padding: 20px 24px !important;
+    background: rgba(10, 10, 10, 0.55) !important;
+    backdrop-filter: blur(6px) !important;
 
-    background: rgba(15, 15, 15, 0.55) !important;
-    backdrop-filter: blur(8px) !important;
+    border-radius: 12px !important;
+    padding: 18px 20px !important;
 
-    border-radius: 14px !important;
-    overflow: visible !important;
-
-    box-shadow:
-        0 12px 40px rgba(0,0,0,0.45) !important;
-}
-
-/* SPACE FOR AVATAR */
-.mes:not(.user_mes) .mes_block {
-    margin-left: 64px !important;
-}
-
-.mes.user_mes .mes_block {
-    margin-right: 64px !important;
+    max-width: calc(100% - 180px) !important;
 }
 
 /* =========================
-   GRADIENT TRANSITION (BACK!)
-========================= */
-
-.mes:not(.user_mes) .mes_block::before {
-    content: "";
-    position: absolute;
-    left: -60px;
-    top: 0;
-    width: 60px;
-    height: 100%;
-    pointer-events: none;
-
-    background: linear-gradient(
-        to right,
-        rgba(15,15,15,0.0),
-        rgba(15,15,15,0.55)
-    );
-}
-
-.mes.user_mes .mes_block::after {
-    content: "";
-    position: absolute;
-    right: -60px;
-    top: 0;
-    width: 60px;
-    height: 100%;
-    pointer-events: none;
-
-    background: linear-gradient(
-        to left,
-        rgba(15,15,15,0.0),
-        rgba(15,15,15,0.55)
-    );
-}
-
-/* =========================
-   SAFETY — NO CLIPPING
+   ФИКС: НИКАКИХ ОБРЕЗАНИЙ
 ========================= */
 
 .mes,
 .mes_block,
-.mesAvatarWrapper,
 .avatar,
 .avatar img {
     max-height: none !important;
