@@ -1,8 +1,7 @@
-/* Делаем чат широким, чтобы текст занимал основное место */
+/* Делаем основной блок поста широким */
 #chat {
-    max-width: 95% !important;
-    width: 95% !important;
-    margin: 0 auto !important;
+    max-width: 98% !important;
+    width: 98% !important;
 }
 
 .mes {
@@ -12,36 +11,34 @@
     gap: 20px !important;
 }
 
-/* АВАТАРКА: Уменьшаем масштаб всего элемента */
+/* КОНТЕЙНЕР АВАТАРКИ: Уменьшаем общий масштаб */
 .mes .avatar {
     order: -1 !important;
-    /* Задаем только ширину — высота подстроится сама! */
-    width: 250px !important; 
-    min-width: 250px !important;
-    height: auto !important; 
+    width: 180px !important; /* ВОТ ЗДЕСЬ регулируется размер. Сделай 150px, если всё еще много */
+    min-width: 180px !important;
+    height: auto !important;
     flex-shrink: 0 !important;
-    margin: 0 !important;
-    overflow: visible !important;
 }
 
 .mes .avatar img {
     width: 100% !important;
-    height: auto !important; /* Убираем 100%, чтобы не было растягивания */
-    object-fit: contain !important; /* Картинка просто вписывается в размер */
-    border-radius: 12px !important;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5) !important;
+    height: auto !important;
+    object-fit: contain !important; /* Гарантирует, что картинка не обрежется */
+    
+    /* ЭФФЕКТ РАЗМЫТИЯ ПО КРАЯМ (как на эталоне) */
+    -webkit-mask-image: radial-gradient(circle, black 60%, rgba(0,0,0,0.5) 85%, transparent 100%);
+    mask-image: radial-gradient(circle, black 60%, rgba(0,0,0,0.5) 85%, transparent 100%);
+    
+    border-radius: 0 !important; /* Убираем жесткие углы */
 }
 
-/* ТЕКСТ: Широкий блок рядом */
+/* ТЕКСТОВЫЙ БЛОК */
 .mes_block {
     flex: 1 !important;
-    background: rgba(15, 15, 15, 0.8) !important;
+    background: rgba(10, 10, 10, 0.75) !important;
     backdrop-filter: blur(10px) !important;
-    border-radius: 15px !important;
     padding: 25px !important;
+    border-radius: 12px !important;
 }
 
-/* Скрываем обертки темы, которые мешают */
 .mesAvatarWrapper { display: contents !important; }
-
-
