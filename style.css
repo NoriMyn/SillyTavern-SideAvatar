@@ -1,45 +1,49 @@
-/* Делаем чат широким, чтобы текст не ютился */
+/* Делаем чат широким, как на твоих примерах */
 #chat {
-    max-width: 98% !important;
-    width: 98% !important;
+    max-width: 95% !important;
+    width: 95% !important;
+    margin: 0 auto !important;
 }
 
 .mes {
     display: flex !important;
     flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 15px !important;
+    align-items: flex-start !important; /* Прижимаем к верху поста */
+    gap: 20px !important;
     margin-bottom: 25px !important;
 }
 
-/* АВАТАРКА: Узкая колонка */
+/* АВАТАРКА: Теперь она просто МАЛЕНЬКАЯ */
 .mes .avatar {
     order: -1 !important;
-    width: 180px !important;     /* УМЕНЬШЕНО: теперь она не будет огромной вширь */
-    min-width: 180px !important;
-    height: 550px !important;    /* ДЛИНА: она вытянута вниз, как ты хотела */
+    /* Уменьшаем общую ширину контейнера */
+    width: 220px !important; 
+    min-width: 220px !important;
+    /* Убираем фиксированную высоту, чтобы она не тянулась и не обрезалась */
+    height: auto !important; 
+    max-height: 400px !important; /* Ограничиваем длину, чтобы не была до пола */
     flex-shrink: 0 !important;
-    overflow: hidden !important;
-    position: relative !important;
+    margin: 0 !important;
 }
 
 .mes .avatar img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important;
-    object-position: top center !important;
-    border-radius: 10px !important;
-    /* Эффект растворения снизу, чтобы не было резкого края */
+    /* Вместо 'cover' (обрезка) используем 'contain' или 'cover' с авто-высотой */
+    object-fit: cover !important; 
+    border-radius: 12px !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4) !important;
+    /* Мягкое исчезновение только в самом низу */
     -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
 }
 
-/* ТЕКСТ: Занимает все пространство */
+/* ТЕКСТ: Занимает всё основное место */
 .mes_block {
     flex: 1 !important;
     background: rgba(15, 15, 15, 0.7) !important;
     backdrop-filter: blur(8px) !important;
-    border-radius: 12px !important;
+    border-radius: 15px !important;
     padding: 20px 30px !important;
     min-width: 0 !important;
 }
