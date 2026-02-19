@@ -1,8 +1,8 @@
 {
-    "name": "SideAvatar",
-    "display_name": "Side Avatar Portrait",
+    "name": "SillyTavern-SideAvatar",
+    "display_name": "Side Avatar (VN Style)",
     "version": "1.0.0",
-    "description": "Отображает большой аватар персонажа сбоку чата (VN Style)",
+    "description": "Красивое отображение аватаров сбоку, как в визуальных новеллах",
     "author": "NoriMyn",
     "type": "extension",
     "js": "index.js"
