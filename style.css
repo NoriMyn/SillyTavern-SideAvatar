@@ -8,7 +8,7 @@
 }
 
 /* =========================
-   СООБЩЕНИЕ
+   СООБЩЕНИЕ - ЕДИНЫЙ КОНТЕЙНЕР
 ========================= */
 
 .mes {
@@ -17,17 +17,21 @@
     align-items: flex-start !important;
     gap: 0 !important;
     position: relative !important;
+
+    background: rgba(10, 10, 10, 0.55) !important;
+    backdrop-filter: blur(6px) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
 }
 
 /* =========================
-   АВАТАР
+   АВАТАР - ВНУТРИ ПОСТА
 ========================= */
 
 .mesAvatarWrapper {
     display: block !important;
     flex-shrink: 0 !important;
-    position: relative !important;
-    z-index: 1 !important;
 }
 
 .mes .avatar {
@@ -40,47 +44,34 @@
 
     overflow: visible !important;
     margin: 0 !important;
-    margin-right: -30px !important;
+    padding: 0 !important;
 }
 
 .mes .avatar img {
     width: 100% !important;
     height: auto !important;
+    display: block !important;
 
     object-fit: contain !important;
 
     border-radius: 0 !important;
     box-shadow: none !important;
 
-    /* РАСТВОРЕНИЕ СПРАВА И СНИЗУ */
+    /* РАСТВОРЕНИЕ СПРАВА */
     -webkit-mask-image: linear-gradient(
         to right,
         rgba(0,0,0,1) 0%,
-        rgba(0,0,0,1) 65%,
-        rgba(0,0,0,0.5) 85%,
-        rgba(0,0,0,0) 100%
-    ),
-    linear-gradient(
-        to bottom,
-        rgba(0,0,0,1) 0%,
-        rgba(0,0,0,1) 85%,
+        rgba(0,0,0,1) 60%,
+        rgba(0,0,0,0.4) 88%,
         rgba(0,0,0,0) 100%
     );
     mask-image: linear-gradient(
         to right,
         rgba(0,0,0,1) 0%,
-        rgba(0,0,0,1) 65%,
-        rgba(0,0,0,0.5) 85%,
-        rgba(0,0,0,0) 100%
-    ),
-    linear-gradient(
-        to bottom,
-        rgba(0,0,0,1) 0%,
-        rgba(0,0,0,1) 85%,
+        rgba(0,0,0,1) 60%,
+        rgba(0,0,0,0.4) 88%,
         rgba(0,0,0,0) 100%
     );
-    -webkit-mask-composite: source-in;
-    mask-composite: intersect;
 }
 
 /* =========================
@@ -89,14 +80,12 @@
 
 .mes_block {
     flex: 1 !important;
-    position: relative !important;
-    z-index: 2 !important;
 
-    background: rgba(10, 10, 10, 0.55) !important;
-    backdrop-filter: blur(6px) !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
 
-    border-radius: 12px !important;
-    padding: 18px 20px 18px 40px !important;
+    border-radius: 0 !important;
+    padding: 18px 20px !important;
 
     max-width: none !important;
 }
