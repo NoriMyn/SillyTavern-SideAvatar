@@ -1,69 +1,94 @@
-/* ===============================
-   SIDE AVATAR LAYOUT — BALANCED
-   =============================== */
+/* =========================
+   ОСНОВА ЧАТА
+========================= */
 
-/* Чат шире */
 #chat {
-    max-width: 95% !important;
-    width: 95% !important;
+    max-width: 92% !important;
+    width: 92% !important;
 }
 
-/* Сообщение: горизонтальный блок */
+/* =========================
+   СООБЩЕНИЕ
+========================= */
+
 .mes {
     display: flex !important;
     flex-direction: row !important;
     align-items: flex-start !important;
-    gap: 14px !important;
+    gap: 18px !important;
 }
 
-/* Контейнер аватара */
-.mes .avatar {
-    order: -1 !important;
+/* =========================
+   АВАТАР
+========================= */
 
-    width: 170px !important;
-    min-width: 170px !important;
-
-    max-height: 420px !important; /* 🔑 КЛЮЧЕВОЕ */
-    overflow: hidden !important;
-
+.mesAvatarWrapper {
+    display: block !important;
     flex-shrink: 0 !important;
-    margin-top: 6px !important;
 }
 
-/* Картинка */
+.mes .avatar {
+    width: 160px !important;
+    min-width: 160px !important;
+    max-width: 160px !important;
+
+    height: auto !important;
+    max-height: none !important;
+
+    overflow: visible !important;
+    margin-top: 8px !important;
+}
+
 .mes .avatar img {
     width: 100% !important;
-    height: 100% !important;
+    height: auto !important;
 
-    object-fit: cover !important;
+    object-fit: contain !important;
 
-    /* Мягкое растворение снизу */
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    /* МЯГКОЕ РАСТВОРЕНИЕ КАК В MOONLIT */
     -webkit-mask-image: linear-gradient(
         to bottom,
-        black 0%,
-        black 65%,
-        transparent 100%
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,1) 12%,
+        rgba(0,0,0,1) 88%,
+        rgba(0,0,0,0) 100%
     );
     mask-image: linear-gradient(
         to bottom,
-        black 0%,
-        black 65%,
-        transparent 100%
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,1) 12%,
+        rgba(0,0,0,1) 88%,
+        rgba(0,0,0,0) 100%
     );
 }
 
-/* Текст */
+/* =========================
+   БЛОК ТЕКСТА
+========================= */
+
 .mes_block {
     flex: 1 !important;
 
     background: rgba(10, 10, 10, 0.55) !important;
-    backdrop-filter: blur(8px) !important;
+    backdrop-filter: blur(6px) !important;
 
     border-radius: 12px !important;
-    padding: 20px !important;
+    padding: 18px 20px !important;
+
+    max-width: calc(100% - 180px) !important;
 }
 
-/* Убираем лишние обёртки */
-.mesAvatarWrapper {
-    display: contents !important;
+/* =========================
+   ФИКС: НИКАКИХ ОБРЕЗАНИЙ
+========================= */
+
+.mes,
+.mes_block,
+.avatar,
+.avatar img {
+    max-height: none !important;
+    clip-path: none !important;
 }
