@@ -1,6 +1,6 @@
 import { eventSource, event_types } from "../../../script.js";
 
-console.log("[SideAvatarMoon] loaded");
+console.log("[SideAvatarLayout] loaded");
 
 function applyLayout() {
   document.querySelectorAll(".mes").forEach(mes => {
