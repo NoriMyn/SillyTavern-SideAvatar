@@ -1,9 +1,8 @@
-/* 1. РАСШИРЯЕМ ВЕСЬ ЧАТ (как на скриншотах 2 и 3) */
+/* 1. ЧАТ НА ВЕСЬ ЭКРАН */
 #chat {
-    max-width: 98% !important; /* Почти на весь экран */
+    max-width: 98% !important;
     width: 98% !important;
     margin: 0 auto !important;
-    padding: 0 10px !important;
 }
 
 /* 2. КОНТЕЙНЕР СООБЩЕНИЯ */
@@ -11,18 +10,17 @@
     display: flex !important;
     flex-direction: row !important;
     align-items: flex-start !important;
-    gap: 20px !important; /* Умеренный зазор между фото и текстом */
-    margin-bottom: 30px !important;
+    gap: 15px !important; /* Минимальный зазор для аккуратности */
+    margin-bottom: 25px !important;
     width: 100% !important;
-    background: transparent !important;
 }
 
-/* 3. АВАТАРКА: Узкая и Длинная */
+/* 3. АВАТАРКА: Маленькая и аккуратная (как на твоих скринах) */
 .mes .avatar {
     order: -1 !important;
-    width: 250px !important;  /* Сделали чуть уже, чтобы не "съедала" экран */
-    min-width: 250px !important;
-    height: 750px !important; /* УВЕЛИЧЕНО: стала длиннее */
+    width: 180px !important;  /* УМЕНЬШЕНО: теперь она не давит на текст */
+    min-width: 180px !important;
+    height: 240px !important; /* УМЕНЬШЕНО: аккуратный прямоугольник */
     flex-shrink: 0 !important;
     position: relative !important;
     margin: 0 !important;
@@ -32,26 +30,23 @@
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: top center !important;
-    border-radius: 12px !important; /* Скругление как на твоих примерах */
-    /* Мягкое растворение только в самом низу */
-    -webkit-mask-image: linear-gradient(to bottom, black 92%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 92%, transparent 100%);
+    border-radius: 10px !important; /* Легкое скругление */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
 }
 
-/* 4. ТЕКСТОВЫЙ БЛОК: Основное расположение */
+/* 4. ТЕКСТ: Занимает всё основное место */
 .mes_block {
-    flex: 1 !important; 
-    background: rgba(20, 20, 20, 0.7) !important; /* Прозрачность как на скринах */
-    backdrop-filter: blur(8px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 15px !important;
-    padding: 25px 35px !important; /* Больше места для текста внутри */
+    flex: 1 !important;
+    background: rgba(15, 15, 15, 0.75) !important;
+    backdrop-filter: blur(5px) !important;
+    border-radius: 12px !important;
+    padding: 20px 25px !important;
     margin: 0 !important;
     min-width: 0 !important;
+    font-size: 1.05rem !important; /* Чуть крупнее для читаемости */
 }
 
-/* Прячем лишние элементы расширения/темы */
+/* Убираем лишние элементы расширения */
 .mesAvatarWrapper {
     display: contents !important;
 }
