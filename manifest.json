@@ -1,7 +1,8 @@
 {
-  "display_name": "Side Avatar Beautifier",
-  "loading_order": 100,
-  "requires": [],
+  "display_name": "Side Avatar",
   "js": "index.js",
-  "css": "style.css"
+  "css": "style.css",
+  "version": "1.0",
+  "author": "NoriMyn",
+  "description": "Side avatars for chats"
 }
