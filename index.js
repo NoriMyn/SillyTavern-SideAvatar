@@ -1,17 +1,19 @@
 (function() {
-    function fixAvatars() {
+    function cleanStyles() {
+        // Находим картинки и убираем инлайн-стили, которые мешают CSS
         const avatars = document.querySelectorAll('.mes .avatar img');
         avatars.forEach(img => {
-            // Очищаем все инлайн-стили, которые мешают размеру
-            img.style.width = '100%';
-            img.style.height = '100%';
-            img.style.borderRadius = '0'; 
-            img.style.objectFit = 'cover';
+            img.style.width = '';
+            img.style.height = '';
+            img.style.borderRadius = '';
+            img.style.border = '';
+            img.style.boxShadow = '';
         });
     }
 
-    fixAvatars();
-    new MutationObserver(fixAvatars).observe(document.getElementById('chat') || document.body, {
+    cleanStyles();
+    // Следим за новыми сообщениями
+    new MutationObserver(cleanStyles).observe(document.getElementById('chat') || document.body, {
         childList: true, subtree: true
     });
 })();
