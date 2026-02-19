@@ -1,35 +1,47 @@
-/* Side Avatar - FIXED VERSION */
-#chara_container, .chara_container {
+/* SideAvatar - точно как на скринах */
+#chara_container {
     position: fixed !important;
-    left: 30px !important;
+    left: 20px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    width: 160px !important;
-    height: 160px !important;
-    z-index: 1000 !important;
-    border-radius: 20px !important;
-    box-shadow: 0 8px 32px rgba(0,150,255,0.3) !important;
+    width: 180px !important;
+    height: 180px !important;
+    z-index: 999 !important;
+    border-radius: 25px !important;
+    box-shadow: 0 15px 40px rgba(100,150,255,0.4) !important;
+    border: 3px solid rgba(255,255,255,0.2) !important;
+}
+
+#chara_container:hover {
+    transform: translateY(-50%) scale(1.05) !important;
+    box-shadow: 0 20px 50px rgba(100,150,255,0.6) !important;
 }
 
 #user_avatar {
     position: fixed !important;
-    right: 30px !important;
+    right: 20px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    width: 70px !important;
-    height: 70px !important;
-    z-index: 1000 !important;
-    border-radius: 15px !important;
+    width: 80px !important;
+    height: 80px !important;
+    z-index: 999 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(255,100,150,0.4) !important;
 }
 
 #chat {
-    margin-left: 200px !important;
+    margin-left: 220px !important;
     margin-right: 120px !important;
 }
 
-/* Мобильные */
-@media (max-width: 1200px) {
-    #chara_container, .chara_container { width: 120px !important; height: 120px !important; left: 20px !important; }
-    #user_avatar { width: 50px !important; height: 50px !important; right: 20px !important; }
-    #chat { margin-left: 150px !important; margin-right: 80px !important; }
+/* Responsive как на твоих скринах */
+@media (max-width: 1400px) {
+    #chara_container { width: 140px !important; height: 140px !important; left: 15px !important; }
+    #user_avatar { width: 60px !important; height: 60px !important; right: 15px !important; }
+    #chat { margin-left: 170px !important; margin-right: 90px !important; }
+}
+
+@media (max-width: 768px) {
+    #chara_container, #user_avatar { display: none !important; }
+    #chat { margin-left: 20px !important; margin-right: 20px !important; }
 }
