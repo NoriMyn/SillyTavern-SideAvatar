@@ -1,44 +1,53 @@
-/* Делаем основной блок поста широким */
+/* Делаем чат широким */
 #chat {
-    max-width: 98% !important;
-    width: 98% !important;
+    max-width: 95% !important;
+    width: 95% !important;
 }
 
 .mes {
     display: flex !important;
     flex-direction: row !important;
     align-items: flex-start !important;
-    gap: 20px !important;
+    gap: 15px !important;
 }
 
-/* КОНТЕЙНЕР АВАТАРКИ: Уменьшаем общий масштаб */
+/* АВАТАРКА: Масштабируем вниз */
 .mes .avatar {
     order: -1 !important;
-    width: 180px !important; /* ВОТ ЗДЕСЬ регулируется размер. Сделай 150px, если всё еще много */
+    width: 180px !important; /* УМЕНЬШЕНО: теперь она компактная */
     min-width: 180px !important;
     height: auto !important;
     flex-shrink: 0 !important;
+    margin-top: 10px !important;
 }
 
 .mes .avatar img {
     width: 100% !important;
     height: auto !important;
-    object-fit: contain !important; /* Гарантирует, что картинка не обрежется */
+    object-fit: contain !important; /* Никакой обрезки, только масштаб! */
     
-    /* ЭФФЕКТ РАЗМЫТИЯ ПО КРАЯМ (как на эталоне) */
-    -webkit-mask-image: radial-gradient(circle, black 60%, rgba(0,0,0,0.5) 85%, transparent 100%);
-    mask-image: radial-gradient(circle, black 60%, rgba(0,0,0,0.5) 85%, transparent 100%);
-    
-    border-radius: 0 !important; /* Убираем жесткие углы */
+    /* ЭФФЕКТ ЭТАЛОНА: Мягкое растворение снизу и по бокам */
+    -webkit-mask-image: linear-gradient(to bottom, 
+        transparent 0%, 
+        black 10%, 
+        black 80%, 
+        transparent 100%
+    );
+    mask-image: linear-gradient(to bottom, 
+        transparent 0%, 
+        black 10%, 
+        black 80%, 
+        transparent 100%
+    );
 }
 
-/* ТЕКСТОВЫЙ БЛОК */
+/* ТЕКСТ: Как на скрине 2 и 3 */
 .mes_block {
     flex: 1 !important;
-    background: rgba(10, 10, 10, 0.75) !important;
-    backdrop-filter: blur(10px) !important;
-    padding: 25px !important;
-    border-radius: 12px !important;
+    background: rgba(10, 10, 10, 0.6) !important; /* Прозрачность для стиля */
+    backdrop-filter: blur(8px) !important;
+    border-radius: 10px !important;
+    padding: 20px !important;
 }
 
 .mesAvatarWrapper { display: contents !important; }
