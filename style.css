@@ -1,79 +1,74 @@
+/* ✅ Side Avatars ONLY for SillyTavern */
 :root {
-  --side-char-avatar-size: 180px;
-  --side-user-avatar-size: 80px;
-  --chat-margin-left: 220px;
-  --chat-margin-right: 120px;
+  --side-char-size: 180px;
+  --side-user-size: 80px;
+  --chat-left: 220px;
+  --chat-right: 120px;
 }
 
+/* Chat сдвигаем в центр */
 #chat {
-  margin-left: var(--chat-margin-left) !important;
-  margin-right: var(--chat-margin-right) !important;
-  padding: 20px;
-  background: linear-gradient(135deg, rgba(20,20,40,0.8), rgba(40,20,60,0.8));
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
+  margin-left: var(--chat-left) !important;
+  margin-right: var(--chat-right) !important;
+  max-width: calc(100% - var(--chat-left) - var(--chat-right));
 }
 
-/* Char avatar left side - как на первом скрине */
-.char-side-avatar {
+/* 🎯 ТОЧНЫЙ char avatar слева */
+#chara_container,
+#char_img_link {
   position: fixed !important;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: var(--side-char-avatar-size) !important;
-  height: var(--side-char-avatar-size) !important;
-  z-index: 100;
-  border-radius: 30px;
-  box-shadow: 0 10px 40px rgba(100,150,255,0.4);
-  border: 3px solid rgba(255,255,255,0.2);
-  transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
-  background: linear-gradient(45deg, #667eea, #764ba2);
+  left: 20px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: var(--side-char-size) !important;
+  height: var(--side-char-size) !important;
+  z-index: 999 !important;
+  border-radius: 25px !important;
+  box-shadow: 0 15px 40px rgba(100,150,255,0.5) !important;
+  border: 3px solid rgba(255,255,255,0.2) !important;
 }
 
-.char-side-avatar:hover {
-  transform: translateY(-50%) scale(1.05);
-  box-shadow: 0 15px 50px rgba(100,150,255,0.6);
+#chara_container:hover,
+#char_img_link:hover {
+  transform: translateY(-50%) scale(1.05) !important;
+  box-shadow: 0 20px 50px rgba(100,150,255,0.7) !important;
 }
 
-/* User avatar right side */
-.user-side-avatar {
+/* 🎯 ТОЧНЫЙ user avatar справа */
+#user_avatar {
   position: fixed !important;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: var(--side-user-avatar-size) !important;
-  height: var(--side-user-avatar-size) !important;
-  z-index: 100;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(255,100,150,0.4);
-  border: 2px solid rgba(255,255,255,0.3);
+  right: 20px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: var(--side-user-size) !important;
+  height: var(--side-user-size) !important;
+  z-index: 999 !important;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 30px rgba(255,100,150,0.4) !important;
 }
 
-/* Info overlay как на скрине (имя, дата) */
+/* Info labels */
 .avatar-info {
-  position: absolute;
-  bottom: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.7);
-  color: white;
-  padding: 5px 12px;
-  border-radius: 15px;
-  font-size: 12px;
-  white-space: nowrap;
-  backdrop-filter: blur(5px);
+  position: absolute !important;
+  bottom: -35px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: rgba(0,0,0,0.8) !important;
+  color: #fff !important;
+  padding: 4px 10px !important;
+  border-radius: 12px !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
 }
 
 /* Responsive */
-@media (max-width: 1200px) {
-  :root {
-    --side-char-avatar-size: 140px;
-    --side-user-avatar-size: 60px;
-    --chat-margin-left: 170px;
-    --chat-margin-right: 90px;
-  }
+@media (max-width: 1400px) {
+  :root { --side-char-size: 140px; --side-user-size: 60px; --chat-left: 170px; --chat-right: 90px; }
+}
+@media (max-width: 1000px) {
+  :root { --side-char-size: 120px; --side-user-size: 50px; --chat-left: 140px; --chat-right: 70px; }
 }
 @media (max-width: 768px) {
-  #chat { margin-left: 100px !important; margin-right: 100px !important; }
-  .char-side-avatar, .user-side-avatar { display: none; }
+  #chat { margin-left: 20px !important; margin-right: 20px !important; }
+  #chara_container, #char_img_link, #user_avatar { display: none !important; }
 }
