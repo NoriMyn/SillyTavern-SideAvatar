@@ -1,13 +1,18 @@
 (function() {
-    const observer = new MutationObserver(() => {
-        document.querySelectorAll('.mes .avatar img').forEach(img => {
-            // Удаляем всё, что мешает внешним стилям
-            img.style.width = '';
-            img.style.height = '';
-            img.style.borderRadius = '';
-            img.style.border = '';
-            img.style.boxShadow = '';
+    function cleanUp() {
+        const avatars = document.querySelectorAll('.mes .avatar img');
+        avatars.forEach(img => {
+            // Удаляем мусорные стили, которые всё ломают
+            img.style.width = '100%';
+            img.style.height = 'auto';
+            img.style.borderRadius = '0';
+            img.style.border = 'none';
+            img.style.boxShadow = 'none';
         });
+    }
+
+    cleanUp();
+    new MutationObserver(cleanUp).observe(document.getElementById('chat') || document.body, {
+        childList: true, subtree: true
     });
-    observer.observe(document.getElementById('chat') || document.body, { childList: true, subtree: true });
 })();
