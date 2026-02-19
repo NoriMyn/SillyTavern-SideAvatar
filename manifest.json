@@ -1,8 +1,12 @@
 {
-  "display_name": "Side Avatar",
-  "js": "index.js",
-  "css": "style.css",
-  "version": "1.0",
-  "author": "NoriMyn",
-  "description": "Side avatars for chats"
+    "display_name": "Side Avatar",
+    "loading_order": 10,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "NoriMyn",
+    "version": "1.0.0",
+    "homePage": "https://github.com/NoriMyn/SillyTavern-SideAvatar",
+    "auto_update": true
 }
