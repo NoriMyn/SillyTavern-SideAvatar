@@ -1,36 +1,39 @@
 /* ===============================
-   SIDE AVATAR LAYOUT — CLEAN
+   SIDE AVATAR LAYOUT — BALANCED
    =============================== */
 
-/* Делаем чат шире */
+/* Чат шире */
 #chat {
     max-width: 95% !important;
     width: 95% !important;
 }
 
-/* Сообщение как горизонтальный блок */
+/* Сообщение: горизонтальный блок */
 .mes {
     display: flex !important;
     flex-direction: row !important;
-    align-items: stretch !important;
-    gap: 16px !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
 }
 
 /* Контейнер аватара */
 .mes .avatar {
     order: -1 !important;
 
-    width: 220px !important;
-    min-width: 220px !important;
+    width: 170px !important;
+    min-width: 170px !important;
+
+    max-height: 420px !important; /* 🔑 КЛЮЧЕВОЕ */
+    overflow: hidden !important;
 
     flex-shrink: 0 !important;
     margin-top: 6px !important;
 }
 
-/* Само изображение */
+/* Картинка */
 .mes .avatar img {
     width: 100% !important;
-    height: auto !important;
+    height: 100% !important;
 
     object-fit: cover !important;
 
@@ -38,18 +41,18 @@
     -webkit-mask-image: linear-gradient(
         to bottom,
         black 0%,
-        black 70%,
+        black 65%,
         transparent 100%
     );
     mask-image: linear-gradient(
         to bottom,
         black 0%,
-        black 70%,
+        black 65%,
         transparent 100%
     );
 }
 
-/* Текстовый блок */
+/* Текст */
 .mes_block {
     flex: 1 !important;
 
@@ -60,7 +63,7 @@
     padding: 20px !important;
 }
 
-/* Убираем лишние врапперы */
+/* Убираем лишние обёртки */
 .mesAvatarWrapper {
     display: contents !important;
 }
