@@ -92,3 +92,31 @@
     max-height: none !important;
     clip-path: none !important;
 }
+/* =========================
+   ФИКС СЪЕДЕННОГО ПРОСТРАНСТВА СПРАВА
+========================= */
+
+/* Реальная ширина чата */
+#chat {
+    max-width: 98% !important;
+    width: 98% !important;
+    padding-right: 0 !important;
+}
+
+/* Убираем внутренний зажим контейнера сообщений */
+#chat .mes_container {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Сообщения занимают всю доступную ширину */
+.mes {
+    max-width: 100% !important;
+}
+
+/* Текст не ужимается из-за аватара */
+.mes_block {
+    max-width: none !important;
+    width: 100% !important;
+}
+
