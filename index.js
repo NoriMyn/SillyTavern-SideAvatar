@@ -1,16 +1,14 @@
-import { eventSource, event_types } from "../../../script.js";
-
-console.log("[SideAvatarLayout] loaded");
+console.log("[SideAvatarLayout] init");
 
 function applyLayout() {
   document.querySelectorAll(".mes").forEach(mes => {
-    if (mes.dataset.sideAvatar) return;
+    if (mes.dataset.sideAvatarApplied) return;
 
     const avatar = mes.querySelector(".mes_avatar");
     const block = mes.querySelector(".mes_block");
     if (!avatar || !block) return;
 
-    mes.dataset.sideAvatar = "1";
+    mes.dataset.sideAvatarApplied = "true";
 
     const wrap = document.createElement("div");
     wrap.className = "side-avatar-wrap";
@@ -28,5 +26,19 @@ function applyLayout() {
   });
 }
 
-eventSource.on(event_types.CHAT_RENDERED, applyLayout);
-eventSource.on(event_types.MESSAGE_RECEIVED, applyLayout);
+function waitForChat() {
+  const chat = document.getElementById("chat");
+  if (!chat) {
+    setTimeout(waitForChat, 300);
+    return;
+  }
+
+  applyLayout();
+
+  new MutationObserver(applyLayout).observe(chat, {
+    childList: true,
+    subtree: true
+  });
+}
+
+waitForChat();
