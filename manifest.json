@@ -1,7 +1,7 @@
 {
-    "name": "SillyTavern-SideAvatar",
-    "display_name": "Side Avatar VN",
-    "version": "1.0.0",
-    "type": "extension",
-    "js": "index.js"
+  "display_name": "Side Avatar Beautifier",
+  "loading_order": 100,
+  "requires": [],
+  "js": "index.js",
+  "css": "style.css"
 }
