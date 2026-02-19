@@ -1,9 +1,0 @@
-{
-    "name": "SillyTavern-SideAvatar",
-    "display_name": "Side Avatar VN",
-    "version": "1.0.0",
-    "description": "Side avatars for chat",
-    "author": "NoriMyn",
-    "type": "extension",
-    "js": "index.js"
-}
