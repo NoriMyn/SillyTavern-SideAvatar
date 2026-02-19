@@ -9,31 +9,43 @@
 }
 
 /* =========================
-   СООБЩЕНИЕ — СРЕДА
+   СООБЩЕНИЕ — БАЗА
 ========================= */
 
 .mes {
-    display: flex !important;
-    align-items: stretch !important;
-    gap: 0 !important;
     position: relative !important;
+    display: block !important;
     max-width: 100% !important;
+    overflow: visible !important;
 }
 
 /* =========================
-   АВАТАР — КАК В MOONLIT
+   АВАТАР — СЛИЯНИЕ С СООБЩЕНИЕМ
 ========================= */
 
 .mesAvatarWrapper {
-    position: relative !important;
-    width: 160px !important;
-    min-width: 160px !important;
-    flex-shrink: 0 !important;
-    z-index: 1 !important;
+    position: absolute !important;
+    top: 0.75em !important;
+
+    width: 56px !important;
+    height: 56px !important;
+
+    z-index: 6 !important;
+    pointer-events: none !important;
+}
+
+/* БОТ — СЛЕВА */
+.mes:not(.user_mes) .mesAvatarWrapper {
+    left: -72px !important;
+}
+
+/* ЮЗЕР — СПРАВА */
+.mes.user_mes .mesAvatarWrapper {
+    right: -72px !important;
 }
 
 .mes .avatar {
-    width: 160px !important;
+    width: 100% !important;
     height: 100% !important;
     background: transparent !important;
     overflow: hidden !important;
@@ -44,36 +56,43 @@
     height: 100% !important;
     object-fit: cover !important;
 
-    /* НИКАКИХ mask-image */
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    filter: none !important;
+    border-radius: 10px !important;
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,0.08),
+        0 8px 24px rgba(0,0,0,0.35) !important;
 }
 
 /* =========================
-   ТЕКСТ — СЛОЙ ПОВЕРХ
+   ТЕКСТ — СТЕКЛО ПОВЕРХ
 ========================= */
 
 .mes_block {
     position: relative !important;
     z-index: 2 !important;
 
-    flex: 1 !important;
-    margin-left: -40px !important;
-
-    padding: 20px 24px 20px 64px !important;
+    padding: 20px 24px !important;
 
     background: rgba(15, 15, 15, 0.55) !important;
     backdrop-filter: blur(8px) !important;
 
     border-radius: 14px !important;
+    overflow: visible !important;
+}
+
+/* Отступ под аватар */
+.mes:not(.user_mes) .mes_block {
+    margin-left: 64px !important;
+}
+
+.mes.user_mes .mes_block {
+    margin-right: 64px !important;
 }
 
 /* =========================
-   МЯГКОЕ ПЕРЕХОДНОЕ ПОЛЕ
+   МЯГКИЙ ГРАДИЕНТ СЛИЯНИЯ
 ========================= */
 
-.mes_block::before {
+.mes:not(.user_mes) .mes_block::before {
     content: "";
     position: absolute;
     left: -60px;
@@ -91,7 +110,7 @@
 }
 
 /* =========================
-   НИКАКИХ ОГРАНИЧЕНИЙ
+   СНЯТИЕ ОГРАНИЧЕНИЙ
 ========================= */
 
 .mes,
