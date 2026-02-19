@@ -1,91 +1,96 @@
-/* Side Avatar - Большие аватарки слева от сообщений */
+/* Side Avatar - Большие аватарки с размытием по краям */
 
 /* Контейнер сообщения */
 .mes {
     display: flex !important;
     flex-direction: row !important;
     align-items: flex-start !important;
-    gap: 25px !important;
-    margin-bottom: 30px !important;
-    padding: 15px !important;
-    background: rgba(0, 0, 0, 0.3) !important;
-    border-radius: 15px !important;
+    gap: 0 !important;
+    margin-bottom: 25px !important;
+    position: relative !important;
 }
 
-/* Аватарка персонажа - БОЛЬШАЯ слева */
+/* Аватарка персонажа - БОЛЬШАЯ слева с градиентом */
 .mes:not(.mes_user) .avatar {
     flex-shrink: 0 !important;
-    width: 280px !important;
+    width: 300px !important;
     height: auto !important;
-    min-height: 350px !important;
+    min-height: 400px !important;
     order: -1 !important;
+    position: relative !important;
+    margin-right: -50px !important;
+    z-index: 1 !important;
 }
 
 .mes:not(.mes_user) .avatar img {
     width: 100% !important;
     height: 100% !important;
-    min-height: 350px !important;
+    min-height: 400px !important;
     object-fit: cover !important;
     object-position: center top !important;
-    border-radius: 15px !important;
-    box-shadow:
-        0 10px 40px rgba(100, 150, 255, 0.5),
-        0 0 25px rgba(150, 100, 255, 0.4),
-        inset 0 0 20px rgba(255, 255, 255, 0.05) !important;
-    border: 3px solid rgba(255, 255, 255, 0.2) !important;
-    filter: brightness(1.05) contrast(1.1) !important;
+    border-radius: 10px !important;
+    mask-image: linear-gradient(to right,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,1) 60%,
+        rgba(0,0,0,0.3) 85%,
+        rgba(0,0,0,0) 100%) !important;
+    -webkit-mask-image: linear-gradient(to right,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,1) 60%,
+        rgba(0,0,0,0.3) 85%,
+        rgba(0,0,0,0) 100%) !important;
 }
 
 /* Текст сообщения */
 .mes .mes_block {
     flex: 1 !important;
     min-width: 0 !important;
-    padding: 10px !important;
+    padding: 15px 20px !important;
+    background: rgba(20, 20, 30, 0.6) !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(5px) !important;
+    z-index: 2 !important;
 }
 
 .mes .mes_text {
     font-size: 15px !important;
-    line-height: 1.6 !important;
+    line-height: 1.7 !important;
 }
 
-/* Аватарка юзера - маленькая справа */
-.mes.mes_user {
-    flex-direction: row-reverse !important;
-}
-
+/* Аватарка юзера - обычная */
 .mes.mes_user .avatar {
-    width: 120px !important;
-    height: 120px !important;
+    width: 80px !important;
+    height: 80px !important;
     min-height: auto !important;
+    margin-right: 15px !important;
 }
 
 .mes.mes_user .avatar img {
     min-height: auto !important;
-    border-radius: 12px !important;
-    box-shadow:
-        0 8px 30px rgba(255, 100, 150, 0.5),
-        0 0 20px rgba(255, 150, 200, 0.4) !important;
-    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 10px !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
 }
 
 /* Адаптив */
 @media (max-width: 1400px) {
     .mes:not(.mes_user) .avatar {
-        width: 220px !important;
-        min-height: 280px !important;
+        width: 250px !important;
+        min-height: 320px !important;
     }
     .mes:not(.mes_user) .avatar img {
-        min-height: 280px !important;
+        min-height: 320px !important;
     }
 }
 
 @media (max-width: 1024px) {
     .mes:not(.mes_user) .avatar {
-        width: 180px !important;
-        min-height: 220px !important;
+        width: 200px !important;
+        min-height: 260px !important;
+        margin-right: -30px !important;
     }
     .mes:not(.mes_user) .avatar img {
-        min-height: 220px !important;
+        min-height: 260px !important;
     }
 }
 
@@ -97,5 +102,9 @@
         width: 100% !important;
         max-width: 200px !important;
         min-height: auto !important;
+        margin-right: 0 !important;
+    }
+    .mes .avatar img {
+        mask-image: none !important;
     }
 }
