@@ -1,29 +1,27 @@
-.mes {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-end !important;
-    background: transparent !important;
-    border: none !important;
+/* Красивые круглые аватарки с тенями */
+.avatar img {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4) !important;
+    transition: all 0.2s ease !important;
 }
 
-.mes .avatar {
-    width: 300px !important;
-    min-width: 300px !important;
-    height: 400px !important;
-    order: 1 !important;
-    background-size: cover !important;
-    border-radius: 10px !important;
-    mask-image: linear-gradient(to top, black 80%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to top, black 80%, transparent 100%);
+/* Эффект при наведении */
+.avatar img:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
 }
 
-.mes_block {
-    order: 2 !important;
-    flex: 1 !important;
-    background: rgba(20, 20, 20, 0.8) !important;
-    backdrop-filter: blur(5px);
-    border-radius: 15px !important;
-    padding: 20px !important;
-    margin-left: 15px !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+/* Цветная рамка для сообщений пользователя (голубая) */
+.mes[is_user="true"] .avatar img {
+    border-color: rgba(100, 180, 255, 0.6) !important;
+}
+
+/* Цветная рамка для сообщений персонажа (золотистая) */
+.mes[is_user="false"] .avatar img {
+    border-color: rgba(255, 180, 100, 0.6) !important;
 }
