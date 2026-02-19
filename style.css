@@ -1,54 +1,76 @@
 /* =========================
-   ОСНОВА ЧАТА
+   ШИРИНА ЧАТА
 ========================= */
 
 #chat {
-    max-width: 92% !important;
-    width: 92% !important;
+    max-width: 99% !important;
+    width: 99% !important;
+    padding-right: 0 !important;
+}
+
+#chat .mes_container {
+    max-width: 100% !important;
+    width: 100% !important;
 }
 
 /* =========================
-   СООБЩЕНИЕ
+   СООБЩЕНИЕ (БЕЗ FLEX!)
 ========================= */
 
 .mes {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 18px !important;
+    display: block !important;
+    max-width: 100% !important;
 }
 
 /* =========================
-   АВАТАР
+   ЕДИНЫЙ ПУЗЫРЬ
+========================= */
+
+.mes_block {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 18px !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    background: rgba(10, 10, 10, 0.55) !important;
+    backdrop-filter: blur(6px) !important;
+
+    border-radius: 14px !important;
+    padding: 18px 20px !important;
+
+    overflow: hidden !important; /* КЛЮЧЕВО */
+}
+
+/* =========================
+   АВАТАР (ЧАСТЬ ПУЗЫРЯ)
 ========================= */
 
 .mesAvatarWrapper {
-    display: block !important;
     flex-shrink: 0 !important;
 }
 
-.mes .avatar {
+.mes_block .avatar {
     width: 160px !important;
     min-width: 160px !important;
-    max-width: 160px !important;
-
     height: auto !important;
-    max-height: none !important;
+
+    margin-left: -12px !important; /* лёгкое врезание */
+    margin-top: 0 !important;
 
     overflow: visible !important;
-    margin-top: 8px !important;
 }
 
-.mes .avatar img {
+.mes_block .avatar img {
     width: 100% !important;
     height: auto !important;
-
     object-fit: contain !important;
 
     border-radius: 0 !important;
     box-shadow: none !important;
 
-    /* МЯГКОЕ РАСТВОРЕНИЕ КАК В MOONLIT */
+    /* МЯГКОЕ РАСТВОРЕНИЕ (MOONLIT-STYLE) */
     -webkit-mask-image: linear-gradient(
         to bottom,
         rgba(0,0,0,0) 0%,
@@ -66,23 +88,18 @@
 }
 
 /* =========================
-   БЛОК ТЕКСТА
+   ТЕКСТ СООБЩЕНИЯ
 ========================= */
 
-.mes_block {
+.mes_text {
     flex: 1 !important;
+    min-width: 0 !important;
 
-    background: rgba(10, 10, 10, 0.55) !important;
-    backdrop-filter: blur(6px) !important;
-
-    border-radius: 12px !important;
-    padding: 18px 20px !important;
-
-    max-width: calc(100% - 180px) !important;
+    line-height: 1.55 !important;
 }
 
 /* =========================
-   ФИКС: НИКАКИХ ОБРЕЗАНИЙ
+   СТРАХОВКА ОТ ОБРЕЗАНИЙ
 ========================= */
 
 .mes,
@@ -91,31 +108,4 @@
 .avatar img {
     max-height: none !important;
     clip-path: none !important;
-}
-/* =========================
-   ФИКС СЪЕДЕННОГО ПРОСТРАНСТВА СПРАВА
-========================= */
-
-/* Реальная ширина чата */
-#chat {
-    max-width: 98% !important;
-    width: 98% !important;
-    padding-right: 0 !important;
-}
-
-/* Убираем внутренний зажим контейнера сообщений */
-#chat .mes_container {
-    max-width: 100% !important;
-    width: 100% !important;
-}
-
-/* Сообщения занимают всю доступную ширину */
-.mes {
-    max-width: 100% !important;
-}
-
-/* Текст не ужимается из-за аватара */
-.mes_block {
-    max-width: none !important;
-    width: 100% !important;
 }
