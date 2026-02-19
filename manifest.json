@@ -1,9 +1,9 @@
 {
-  "name": "Side Avatar Layout",
-  "id": "side-avatar-layout",
-  "version": "1.0.0",
-  "description": "Large side avatars like Moonlit, but clean",
-  "author": "you",
-  "entry": "index.js",
-  "css": ["style.css"]
+    "name": "SideAvatar",
+    "display_name": "Side Avatar Portrait",
+    "version": "1.0.0",
+    "description": "Отображает большой аватар персонажа сбоку чата (VN Style)",
+    "author": "NoriMyn",
+    "type": "extension",
+    "js": "index.js"
 }
