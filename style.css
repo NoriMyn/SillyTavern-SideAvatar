@@ -1,25 +1,26 @@
-/* Делаем чат широким */
+/* Делаем чат широким, чтобы текст не ютился */
 #chat {
     max-width: 98% !important;
     width: 98% !important;
 }
 
-/* Располагаем элементы в ряд */
 .mes {
     display: flex !important;
     flex-direction: row !important;
     align-items: flex-start !important;
     gap: 15px !important;
+    margin-bottom: 25px !important;
 }
 
-/* АВАТАРКА: Узкая (220px) и Длинная (800px) */
+/* АВАТАРКА: Узкая колонка */
 .mes .avatar {
     order: -1 !important;
-    width: 220px !important; 
-    min-width: 220px !important;
-    height: 800px !important; /* Увеличивай это число, если нужно еще длиннее */
+    width: 180px !important;     /* УМЕНЬШЕНО: теперь она не будет огромной вширь */
+    min-width: 180px !important;
+    height: 550px !important;    /* ДЛИНА: она вытянута вниз, как ты хотела */
     flex-shrink: 0 !important;
-    margin: 0 !important;
+    overflow: hidden !important;
+    position: relative !important;
 }
 
 .mes .avatar img {
@@ -28,20 +29,19 @@
     object-fit: cover !important;
     object-position: top center !important;
     border-radius: 10px !important;
-    /* Эффект растворения внизу */
+    /* Эффект растворения снизу, чтобы не было резкого края */
     -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
 }
 
-/* ТЕКСТ: Занимает всё свободное место */
+/* ТЕКСТ: Занимает все пространство */
 .mes_block {
     flex: 1 !important;
-    background: rgba(15, 15, 15, 0.8) !important;
-    backdrop-filter: blur(10px) !important;
-    border-radius: 15px !important;
-    padding: 25px !important;
+    background: rgba(15, 15, 15, 0.7) !important;
+    backdrop-filter: blur(8px) !important;
+    border-radius: 12px !important;
+    padding: 20px 30px !important;
     min-width: 0 !important;
 }
 
-/* Убираем контейнеры-пузыри, если они остались */
 .mesAvatarWrapper { display: contents !important; }
