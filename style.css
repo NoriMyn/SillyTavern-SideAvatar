@@ -14,56 +14,40 @@
 
 .mes {
     position: relative !important;
-    display: block !important;
     max-width: 100% !important;
     overflow: visible !important;
 }
 
 /* =========================
-   АВАТАР — СЛИЯНИЕ С СООБЩЕНИЕМ
+   AVATAR — COMPATIBLE WITH SillyTavern-SideAvatar
+   (НЕ Moonlit-колонка, НЕ глобальные фиксы)
 ========================= */
 
 .mesAvatarWrapper {
     position: absolute !important;
-    top: 0.75em !important;
-
-    width: 56px !important;
-    height: 56px !important;
-
+    width: auto !important;
+    min-width: 0 !important;
+    flex-shrink: unset !important;
     z-index: 6 !important;
     pointer-events: none !important;
 }
 
-/* БОТ — СЛЕВА */
-.mes:not(.user_mes) .mesAvatarWrapper {
-    left: -72px !important;
-}
-
-/* ЮЗЕР — СПРАВА */
-.mes.user_mes .mesAvatarWrapper {
-    right: -72px !important;
-}
-
+/* НИЧЕГО не навязываем размерам — SideAvatar рулит */
 .mes .avatar {
-    width: 100% !important;
-    height: 100% !important;
     background: transparent !important;
     overflow: hidden !important;
 }
 
 .mes .avatar img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-
-    border-radius: 10px !important;
-    box-shadow:
-        0 0 0 1px rgba(255,255,255,0.08),
-        0 8px 24px rgba(0,0,0,0.35) !important;
+    box-shadow: none !important;
+    filter: none !important;
+    border: none !important;
+    mask-image: none !important;
+    clip-path: none !important;
 }
 
 /* =========================
-   ТЕКСТ — СТЕКЛО ПОВЕРХ
+   ТЕКСТ — GLASS-КАРТОЧКА
 ========================= */
 
 .mes_block {
@@ -79,7 +63,7 @@
     overflow: visible !important;
 }
 
-/* Отступ под аватар */
+/* Отступы под боковой аватар (SideAvatar) */
 .mes:not(.user_mes) .mes_block {
     margin-left: 64px !important;
 }
@@ -89,7 +73,7 @@
 }
 
 /* =========================
-   МЯГКИЙ ГРАДИЕНТ СЛИЯНИЯ
+   МЯГКИЙ ПЕРЕХОД СЛЕВА
 ========================= */
 
 .mes:not(.user_mes) .mes_block::before {
@@ -99,13 +83,11 @@
     top: 0;
     width: 60px;
     height: 100%;
-
     background: linear-gradient(
         to right,
         rgba(15,15,15,0.0),
         rgba(15,15,15,0.55)
     );
-
     pointer-events: none;
 }
 
