@@ -1,28 +1,18 @@
-(function () {
-    function applyMoonlitAvatar() {
-        document.querySelectorAll('.mes').forEach(mes => {
-            if (mes.classList.contains('moonlit-ready')) return;
-
-            const avatar = mes.querySelector('.avatar');
-            const block = mes.querySelector('.mes_block');
-
-            if (!avatar || !block) return;
-
-            mes.classList.add('moonlit-ready');
-            mes.classList.add('moonlit-avatar');
-
-            // Вставляем overlay для размытия
-            const blurLayer = document.createElement('div');
-            blurLayer.className = 'moonlit-avatar-blur';
-
-            block.prepend(blurLayer);
+(function() {
+    function cleanUp() {
+        const avatars = document.querySelectorAll('.mes .avatar img');
+        avatars.forEach(img => {
+            // Удаляем мусорные стили, которые всё ломают
+            img.style.width = '100%';
+            img.style.height = 'auto';
+            img.style.borderRadius = '0';
+            img.style.border = 'none';
+            img.style.boxShadow = 'none';
         });
     }
 
-    applyMoonlitAvatar();
-
-    new MutationObserver(applyMoonlitAvatar).observe(
-        document.getElementById('chat') || document.body,
-        { childList: true, subtree: true }
-    );
+    cleanUp();
+    new MutationObserver(cleanUp).observe(document.getElementById('chat') || document.body, {
+        childList: true, subtree: true
+    });
 })();
