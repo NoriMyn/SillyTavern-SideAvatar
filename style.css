@@ -1,7 +1,7 @@
 /* Делаем чат широким, чтобы текст занимал основное место */
 #chat {
-    max-width: 95% !important;
-    width: 95% !important;
+    max-width: 50% !important;
+    width: 50% !important;
     margin: 0 auto !important;
 }
 
@@ -43,3 +43,4 @@
 
 /* Скрываем обертки темы, которые мешают */
 .mesAvatarWrapper { display: contents !important; }
+
