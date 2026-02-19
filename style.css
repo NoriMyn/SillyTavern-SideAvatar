@@ -1,0 +1,50 @@
+/* Контейнер сообщения — делаем его горизонтальным */
+.mes {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+    margin-bottom: 40px !important;
+    overflow: visible !important;
+}
+
+/* Сама аватарка — возвращаем ей размер и нормальный вид */
+.mes .avatar {
+    order: -1 !important; /* Всегда слева */
+    width: 300px !important;
+    min-width: 300px !important;
+    height: 450px !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+.mes .avatar img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    border-radius: 15px !important;
+    border: none !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+    /* Эффект растворения снизу */
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+/* Текстовый блок — даем ему дышать */
+.mes_block {
+    flex: 1 !important;
+    background: rgba(15, 15, 15, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 15px !important;
+    padding: 25px !important;
+    min-width: 0 !important;
+}
+
+/* Убираем мусор от темы Bubbles, который мешает */
+.mesAvatarWrapper {
+    display: contents !important;
+}
