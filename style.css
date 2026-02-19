@@ -1,35 +1,69 @@
-/* Универсальный Side Avatar */
-body {
-  padding-left: 220px !important;
-  padding-right: 120px !important;
+/* Side Avatar - Большие аватарки рядом с сообщениями */
+
+/* Контейнер сообщения */
+.mes {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+    padding-left: 200px !important;
 }
 
-/* ПЕРВЫЙ avatar в DOM = char (слева) */
-img[src*="character"], 
-img[src*="avatar"]:first-of-type,
-.avatar img:first-of-type,
-.mes .avatar:first-child {
-  position: absolute !important;
-  left: 20px !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  width: 180px !important;
-  height: 180px !important;
-  z-index: 999 !important;
-  border-radius: 25px !important;
-  box-shadow: 0 15px 40px rgba(100,150,255,0.4) !important;
+/* Аватарка персонажа (не юзера) */
+.mes:not(.mes_user) .avatar {
+    position: absolute !important;
+    left: 0 !important;
+    top: 10px !important;
+    width: 180px !important;
+    height: 180px !important;
+    flex-shrink: 0 !important;
 }
 
-/* ВТОРОЙ avatar = user (справа) */
-img[src*="user"], 
-img[src*="avatar"]:nth-of-type(2),
-.user-avatar img {
-  position: absolute !important;
-  right: 20px !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  width: 80px !important;
-  height: 80px !important;
-  z-index: 999 !important;
-  border-radius: 20px !important;
+.mes:not(.mes_user) .avatar img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 20px !important;
+    box-shadow:
+        0 10px 40px rgba(100, 150, 255, 0.4),
+        0 0 20px rgba(150, 100, 255, 0.3) !important;
+    border: 2px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Текст сообщения */
+.mes .mes_block {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+/* Сообщения юзера - аватарка справа */
+.mes.mes_user {
+    padding-left: 20px !important;
+    padding-right: 120px !important;
+}
+
+.mes.mes_user .avatar {
+    position: absolute !important;
+    right: 0 !important;
+    left: auto !important;
+    top: 10px !important;
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.mes.mes_user .avatar img {
+    border-radius: 15px !important;
+    box-shadow: 0 8px 30px rgba(255, 100, 150, 0.4) !important;
+}
+
+/* Адаптив */
+@media (max-width: 1200px) {
+    .mes:not(.mes_user) { padding-left: 150px !important; }
+    .mes:not(.mes_user) .avatar { width: 130px !important; height: 130px !important; }
+}
+
+@media (max-width: 768px) {
+    .mes { padding-left: 20px !important; padding-right: 20px !important; }
+    .mes .avatar { position: relative !important; width: 60px !important; height: 60px !important; }
 }
