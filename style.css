@@ -1,47 +1,70 @@
-/* SideAvatar - точно как на скринах */
+/* ТОЧНО как на скринах k2vkhnXG + hJBhdp1Y */
+:root {
+  --side-padding: 20px;
+}
+
+/* Контейнеры по краям с аватарами */
+body {
+  padding-left: var(--side-padding) !important;
+  padding-right: var(--side-padding) !important;
+}
+
+/* Левый контейнер с char аватаром */
 #chara_container {
-    position: fixed !important;
-    left: 20px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    width: 180px !important;
-    height: 180px !important;
-    z-index: 999 !important;
-    border-radius: 25px !important;
-    box-shadow: 0 15px 40px rgba(100,150,255,0.4) !important;
-    border: 3px solid rgba(255,255,255,0.2) !important;
+  position: absolute !important;
+  left: var(--side-padding) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 180px !important;
+  height: 180px !important;
+  z-index: 10 !important;
+}
+
+/* Правый контейнер с user аватаром */
+#user_avatar {
+  position: absolute !important;
+  right: var(--side-padding) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 80px !important;
+  height: 80px !important;
+  z-index: 10 !important;
+}
+
+/* Чат в ЦЕНТРЕ между аватарами */
+#chat {
+  margin-left: 220px !important;
+  margin-right: 120px !important;
+  max-width: calc(100% - 340px) !important;
+  padding: 20px !important;
+}
+
+/* Стилизация как на Moonlit theme */
+#chara_container {
+  border-radius: 25px !important;
+  box-shadow: 0 15px 40px rgba(100,150,255,0.4) !important;
+  border: 3px solid rgba(255,255,255,0.15) !important;
 }
 
 #chara_container:hover {
-    transform: translateY(-50%) scale(1.05) !important;
-    box-shadow: 0 20px 50px rgba(100,150,255,0.6) !important;
+  box-shadow: 0 20px 50px rgba(100,150,255,0.6) !important;
+  transform: translateY(-50%) scale(1.02) !important;
 }
 
 #user_avatar {
-    position: fixed !important;
-    right: 20px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    width: 80px !important;
-    height: 80px !important;
-    z-index: 999 !important;
-    border-radius: 20px !important;
-    box-shadow: 0 10px 30px rgba(255,100,150,0.4) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 10px 25px rgba(255,100,150,0.3) !important;
 }
 
-#chat {
-    margin-left: 220px !important;
-    margin-right: 120px !important;
-}
-
-/* Responsive как на твоих скринах */
+/* Адаптация под размер экрана */
 @media (max-width: 1400px) {
-    #chara_container { width: 140px !important; height: 140px !important; left: 15px !important; }
-    #user_avatar { width: 60px !important; height: 60px !important; right: 15px !important; }
-    #chat { margin-left: 170px !important; margin-right: 90px !important; }
+  #chara_container { width: 140px !important; height: 140px !important; }
+  #user_avatar { width: 60px !important; height: 60px !important; }
+  #chat { margin-left: 170px !important; margin-right: 90px !important; }
 }
 
 @media (max-width: 768px) {
-    #chara_container, #user_avatar { display: none !important; }
-    #chat { margin-left: 20px !important; margin-right: 20px !important; }
+  body { padding-left: 10px !important; padding-right: 10px !important; }
+  #chara_container, #user_avatar { display: none !important; }
+  #chat { margin-left: 20px !important; margin-right: 20px !important; }
 }
