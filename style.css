@@ -1,0 +1,47 @@
+.mes {
+  overflow: visible;
+}
+
+.side-avatar-wrap {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 32px;
+  align-items: start;
+  margin: 36px 0;
+}
+
+.side-avatar-wrap.right {
+  grid-template-columns: 1fr 170px;
+}
+
+.side-avatar-wrap.right .mes_avatar {
+  order: 2;
+}
+
+.side-avatar-wrap.right .mes_block {
+  order: 1;
+}
+
+/* АВАТАР */
+.side-avatar-wrap .mes_avatar {
+  width: 160px;
+  height: 220px;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0,0,0,.6);
+}
+
+.side-avatar-wrap .mes_avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ТЕКСТ */
+.side-avatar-wrap .mes_block {
+  background: rgba(14,14,18,.85);
+  backdrop-filter: blur(8px);
+  padding: 30px 34px;
+  border-radius: 30px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.5);
+}

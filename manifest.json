@@ -1,0 +1,10 @@
+{
+  "name": "Side Avatar Layout",
+  "id": "side-avatar-moon",
+  "version": "1.0.0",
+  "description": "Large side avatars like Moonlit, but clean",
+  "author": "you",
+  "entry": "index.js",
+  "css": ["style.css"],
+  "enabled": true
+}
