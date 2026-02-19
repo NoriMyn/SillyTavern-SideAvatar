@@ -1,78 +1,66 @@
-/* Делаем чат широким */
+/* ===============================
+   SIDE AVATAR LAYOUT — CLEAN
+   =============================== */
+
+/* Делаем чат шире */
 #chat {
     max-width: 95% !important;
     width: 95% !important;
 }
 
+/* Сообщение как горизонтальный блок */
 .mes {
     display: flex !important;
     flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 15px !important;
+    align-items: stretch !important;
+    gap: 16px !important;
 }
 
-/* АВАТАРКА: Масштабируем вниз */
+/* Контейнер аватара */
 .mes .avatar {
     order: -1 !important;
 
-    width: 160px !important;
-    min-width: 160px !important;
+    width: 220px !important;
+    min-width: 220px !important;
 
-    max-height: 320px !important; /* 🔥 ГЛАВНОЕ */
-    overflow: hidden !important;
-
-    align-self: flex-start !important; /* 🚑 не растягиваться */
     flex-shrink: 0 !important;
-
-    margin-top: 10px !important;
+    margin-top: 6px !important;
 }
+
+/* Само изображение */
 .mes .avatar img {
     width: 100% !important;
     height: auto !important;
 
-    max-height: 320px !important; /* 🔥 ВТОРОЙ ПРЕДОХРАНИТЕЛЬ */
-    object-fit: contain !important;
+    object-fit: cover !important;
 
-    display: block !important;
-
+    /* Мягкое растворение снизу */
     -webkit-mask-image: linear-gradient(
         to bottom,
-        transparent 0%,
-        black 12%,
-        black 85%,
+        black 0%,
+        black 70%,
         transparent 100%
     );
     mask-image: linear-gradient(
         to bottom,
-        transparent 0%,
-        black 12%,
-        black 85%,
-        transparent 100%
-    );
-}
-    /* ЭФФЕКТ ЭТАЛОНА: Мягкое растворение снизу и по бокам */
-    -webkit-mask-image: linear-gradient(to bottom, 
-        transparent 0%, 
-        black 10%, 
-        black 80%, 
-        transparent 100%
-    );
-    mask-image: linear-gradient(to bottom, 
-        transparent 0%, 
-        black 10%, 
-        black 80%, 
+        black 0%,
+        black 70%,
         transparent 100%
     );
 }
 
-/* ТЕКСТ: Как на скрине 2 и 3 */
+/* Текстовый блок */
 .mes_block {
     flex: 1 !important;
-    background: rgba(10, 10, 10, 0.6) !important; /* Прозрачность для стиля */
+
+    background: rgba(10, 10, 10, 0.55) !important;
     backdrop-filter: blur(8px) !important;
-    border-radius: 10px !important;
+
+    border-radius: 12px !important;
     padding: 20px !important;
 }
 
-.mesAvatarWrapper { display: contents !important; }
-
+/* Убираем лишние врапперы */
+.mesAvatarWrapper {
+    display: contents !important;
+}
