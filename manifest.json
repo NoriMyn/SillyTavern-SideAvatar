@@ -1,0 +1,7 @@
+{
+    "name": "SillyTavern-SideAvatar",
+    "display_name": "Side Avatar VN",
+    "version": "1.0.0",
+    "type": "extension",
+    "js": "index.js"
+}
