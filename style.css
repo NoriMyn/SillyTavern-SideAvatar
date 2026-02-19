@@ -1,4 +1,4 @@
-/* Делаем чат широким, как на твоих примерах */
+/* Делаем чат широким, чтобы текст занимал основное место */
 #chat {
     max-width: 95% !important;
     width: 95% !important;
@@ -8,44 +8,38 @@
 .mes {
     display: flex !important;
     flex-direction: row !important;
-    align-items: flex-start !important; /* Прижимаем к верху поста */
+    align-items: flex-start !important;
     gap: 20px !important;
-    margin-bottom: 25px !important;
 }
 
-/* АВАТАРКА: Теперь она просто МАЛЕНЬКАЯ */
+/* АВАТАРКА: Уменьшаем масштаб всего элемента */
 .mes .avatar {
     order: -1 !important;
-    /* Уменьшаем общую ширину контейнера */
-    width: 220px !important; 
-    min-width: 220px !important;
-    /* Убираем фиксированную высоту, чтобы она не тянулась и не обрезалась */
+    /* Задаем только ширину — высота подстроится сама! */
+    width: 250px !important; 
+    min-width: 250px !important;
     height: auto !important; 
-    max-height: 400px !important; /* Ограничиваем длину, чтобы не была до пола */
     flex-shrink: 0 !important;
     margin: 0 !important;
+    overflow: visible !important;
 }
 
 .mes .avatar img {
     width: 100% !important;
-    height: 100% !important;
-    /* Вместо 'cover' (обрезка) используем 'contain' или 'cover' с авто-высотой */
-    object-fit: cover !important; 
+    height: auto !important; /* Убираем 100%, чтобы не было растягивания */
+    object-fit: contain !important; /* Картинка просто вписывается в размер */
     border-radius: 12px !important;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4) !important;
-    /* Мягкое исчезновение только в самом низу */
-    -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5) !important;
 }
 
-/* ТЕКСТ: Занимает всё основное место */
+/* ТЕКСТ: Широкий блок рядом */
 .mes_block {
     flex: 1 !important;
-    background: rgba(15, 15, 15, 0.7) !important;
-    backdrop-filter: blur(8px) !important;
+    background: rgba(15, 15, 15, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
     border-radius: 15px !important;
-    padding: 20px 30px !important;
-    min-width: 0 !important;
+    padding: 25px !important;
 }
 
+/* Скрываем обертки темы, которые мешают */
 .mesAvatarWrapper { display: contents !important; }
