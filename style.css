@@ -8,25 +8,18 @@
 }
 
 /* =========================
-   СООБЩЕНИЕ - ЕДИНЫЙ КОНТЕЙНЕР
+   СООБЩЕНИЕ
 ========================= */
 
 .mes {
     display: flex !important;
     flex-direction: row !important;
     align-items: flex-start !important;
-    gap: 0 !important;
-    position: relative !important;
-
-    background: rgba(10, 10, 10, 0.55) !important;
-    backdrop-filter: blur(6px) !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
-    padding: 0 !important;
+    gap: 18px !important;
 }
 
 /* =========================
-   АВАТАР - ВНУТРИ ПОСТА
+   АВАТАР
 ========================= */
 
 .mesAvatarWrapper {
@@ -35,41 +28,39 @@
 }
 
 .mes .avatar {
-    width: 200px !important;
-    min-width: 200px !important;
-    max-width: 200px !important;
+    width: 160px !important;
+    min-width: 160px !important;
+    max-width: 160px !important;
 
     height: auto !important;
     max-height: none !important;
 
     overflow: visible !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    margin-top: 8px !important;
 }
 
 .mes .avatar img {
     width: 100% !important;
     height: auto !important;
-    display: block !important;
 
     object-fit: contain !important;
 
     border-radius: 0 !important;
     box-shadow: none !important;
 
-    /* РАСТВОРЕНИЕ СПРАВА */
+    /* МЯГКОЕ РАСТВОРЕНИЕ КАК В MOONLIT */
     -webkit-mask-image: linear-gradient(
-        to right,
-        rgba(0,0,0,1) 0%,
-        rgba(0,0,0,1) 60%,
-        rgba(0,0,0,0.4) 88%,
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,1) 12%,
+        rgba(0,0,0,1) 88%,
         rgba(0,0,0,0) 100%
     );
     mask-image: linear-gradient(
-        to right,
-        rgba(0,0,0,1) 0%,
-        rgba(0,0,0,1) 60%,
-        rgba(0,0,0,0.4) 88%,
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,1) 12%,
+        rgba(0,0,0,1) 88%,
         rgba(0,0,0,0) 100%
     );
 }
@@ -81,13 +72,13 @@
 .mes_block {
     flex: 1 !important;
 
-    background: transparent !important;
-    backdrop-filter: none !important;
+    background: rgba(10, 10, 10, 0.55) !important;
+    backdrop-filter: blur(6px) !important;
 
-    border-radius: 0 !important;
+    border-radius: 12px !important;
     padding: 18px 20px !important;
 
-    max-width: none !important;
+    max-width: calc(100% - 180px) !important;
 }
 
 /* =========================
@@ -101,22 +92,30 @@
     max-height: none !important;
     clip-path: none !important;
 }
-
 /* =========================
-   ФИКС ШИРИНЫ
+   ФИКС СЪЕДЕННОГО ПРОСТРАНСТВА СПРАВА
 ========================= */
 
+/* Реальная ширина чата */
 #chat {
     max-width: 98% !important;
     width: 98% !important;
     padding-right: 0 !important;
 }
 
+/* Убираем внутренний зажим контейнера сообщений */
 #chat .mes_container {
     max-width: 100% !important;
     width: 100% !important;
 }
 
+/* Сообщения занимают всю доступную ширину */
 .mes {
     max-width: 100% !important;
+}
+
+/* Текст не ужимается из-за аватара */
+.mes_block {
+    max-width: none !important;
+    width: 100% !important;
 }
