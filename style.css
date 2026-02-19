@@ -1,29 +1,31 @@
-/* Растягиваем чат, чтобы пост занимал больше места на экране */
+/* 1. РАСШИРЯЕМ ВЕСЬ ЧАТ (как на скриншотах 2 и 3) */
 #chat {
-    max-width: 95% !important; /* Увеличиваем общую ширину чата */
-    width: 95% !important;
+    max-width: 98% !important; /* Почти на весь экран */
+    width: 98% !important;
     margin: 0 auto !important;
+    padding: 0 10px !important;
 }
 
-/* Контейнер сообщения */
+/* 2. КОНТЕЙНЕР СООБЩЕНИЯ */
 .mes {
     display: flex !important;
     flex-direction: row !important;
     align-items: flex-start !important;
-    gap: 25px !important;
-    margin-bottom: 50px !important;
+    gap: 20px !important; /* Умеренный зазор между фото и текстом */
+    margin-bottom: 30px !important;
     width: 100% !important;
+    background: transparent !important;
 }
 
-/* АВАТАРКА: Увеличиваем длину */
+/* 3. АВАТАРКА: Узкая и Длинная */
 .mes .avatar {
     order: -1 !important;
-    width: 320px !important; /* Ширина */
-    min-width: 320px !important;
-    height: 600px !important; /* УВЕЛИЧЕНО: теперь они длиннее */
+    width: 250px !important;  /* Сделали чуть уже, чтобы не "съедала" экран */
+    min-width: 250px !important;
+    height: 750px !important; /* УВЕЛИЧЕНО: стала длиннее */
     flex-shrink: 0 !important;
-    position: sticky !important; /* Чтобы она "плыла" за длинным текстом */
-    top: 10px;
+    position: relative !important;
+    margin: 0 !important;
 }
 
 .mes .avatar img {
@@ -31,24 +33,25 @@
     height: 100% !important;
     object-fit: cover !important;
     object-position: top center !important;
-    border-radius: 20px !important;
-    /* Плавное исчезновение снизу стало чуть ниже из-за длины */
-    -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    border-radius: 12px !important; /* Скругление как на твоих примерах */
+    /* Мягкое растворение только в самом низу */
+    -webkit-mask-image: linear-gradient(to bottom, black 92%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 92%, transparent 100%);
 }
 
-/* ТЕКСТ: Основное расположение */
+/* 4. ТЕКСТОВЫЙ БЛОК: Основное расположение */
 .mes_block {
-    flex: 1 !important; /* Занимает всё оставшееся пространство */
-    background: rgba(10, 10, 10, 0.8) !important;
-    backdrop-filter: blur(12px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
-    border-radius: 20px !important;
-    padding: 35px !important; /* Больше внутренних отступов для красоты */
-    box-shadow: 0 15px 50px rgba(0,0,0,0.4) !important;
+    flex: 1 !important; 
+    background: rgba(20, 20, 20, 0.7) !important; /* Прозрачность как на скринах */
+    backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 15px !important;
+    padding: 25px 35px !important; /* Больше места для текста внутри */
+    margin: 0 !important;
+    min-width: 0 !important;
 }
 
-/* Убираем лишние обертки темы */
+/* Прячем лишние элементы расширения/темы */
 .mesAvatarWrapper {
     display: contents !important;
 }
