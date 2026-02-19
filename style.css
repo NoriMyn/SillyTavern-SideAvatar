@@ -1,74 +1,35 @@
-/* ✅ Side Avatars ONLY for SillyTavern */
-:root {
-  --side-char-size: 180px;
-  --side-user-size: 80px;
-  --chat-left: 220px;
-  --chat-right: 120px;
+/* Side Avatar - FIXED VERSION */
+#chara_container, .chara_container {
+    position: fixed !important;
+    left: 30px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 160px !important;
+    height: 160px !important;
+    z-index: 1000 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 32px rgba(0,150,255,0.3) !important;
 }
 
-/* Chat сдвигаем в центр */
-#chat {
-  margin-left: var(--chat-left) !important;
-  margin-right: var(--chat-right) !important;
-  max-width: calc(100% - var(--chat-left) - var(--chat-right));
-}
-
-/* 🎯 ТОЧНЫЙ char avatar слева */
-#chara_container,
-#char_img_link {
-  position: fixed !important;
-  left: 20px !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  width: var(--side-char-size) !important;
-  height: var(--side-char-size) !important;
-  z-index: 999 !important;
-  border-radius: 25px !important;
-  box-shadow: 0 15px 40px rgba(100,150,255,0.5) !important;
-  border: 3px solid rgba(255,255,255,0.2) !important;
-}
-
-#chara_container:hover,
-#char_img_link:hover {
-  transform: translateY(-50%) scale(1.05) !important;
-  box-shadow: 0 20px 50px rgba(100,150,255,0.7) !important;
-}
-
-/* 🎯 ТОЧНЫЙ user avatar справа */
 #user_avatar {
-  position: fixed !important;
-  right: 20px !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  width: var(--side-user-size) !important;
-  height: var(--side-user-size) !important;
-  z-index: 999 !important;
-  border-radius: 20px !important;
-  box-shadow: 0 10px 30px rgba(255,100,150,0.4) !important;
+    position: fixed !important;
+    right: 30px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 70px !important;
+    height: 70px !important;
+    z-index: 1000 !important;
+    border-radius: 15px !important;
 }
 
-/* Info labels */
-.avatar-info {
-  position: absolute !important;
-  bottom: -35px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  background: rgba(0,0,0,0.8) !important;
-  color: #fff !important;
-  padding: 4px 10px !important;
-  border-radius: 12px !important;
-  font-size: 11px !important;
-  font-weight: 500 !important;
+#chat {
+    margin-left: 200px !important;
+    margin-right: 120px !important;
 }
 
-/* Responsive */
-@media (max-width: 1400px) {
-  :root { --side-char-size: 140px; --side-user-size: 60px; --chat-left: 170px; --chat-right: 90px; }
-}
-@media (max-width: 1000px) {
-  :root { --side-char-size: 120px; --side-user-size: 50px; --chat-left: 140px; --chat-right: 70px; }
-}
-@media (max-width: 768px) {
-  #chat { margin-left: 20px !important; margin-right: 20px !important; }
-  #chara_container, #char_img_link, #user_avatar { display: none !important; }
+/* Мобильные */
+@media (max-width: 1200px) {
+    #chara_container, .chara_container { width: 120px !important; height: 120px !important; left: 20px !important; }
+    #user_avatar { width: 50px !important; height: 50px !important; right: 20px !important; }
+    #chat { margin-left: 150px !important; margin-right: 80px !important; }
 }
