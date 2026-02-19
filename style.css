@@ -14,18 +14,42 @@
 /* АВАТАРКА: Масштабируем вниз */
 .mes .avatar {
     order: -1 !important;
-    width: 180px !important; /* УМЕНЬШЕНО: теперь она компактная */
-    min-width: 180px !important;
-    height: auto !important;
+
+    width: 160px !important;
+    min-width: 160px !important;
+
+    max-height: 320px !important; /* 🔥 ГЛАВНОЕ */
+    overflow: hidden !important;
+
+    align-self: flex-start !important; /* 🚑 не растягиваться */
     flex-shrink: 0 !important;
+
     margin-top: 10px !important;
 }
-
 .mes .avatar img {
     width: 100% !important;
     height: auto !important;
-    object-fit: contain !important; /* Никакой обрезки, только масштаб! */
-    
+
+    max-height: 320px !important; /* 🔥 ВТОРОЙ ПРЕДОХРАНИТЕЛЬ */
+    object-fit: contain !important;
+
+    display: block !important;
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 12%,
+        black 85%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 12%,
+        black 85%,
+        transparent 100%
+    );
+}
     /* ЭФФЕКТ ЭТАЛОНА: Мягкое растворение снизу и по бокам */
     -webkit-mask-image: linear-gradient(to bottom, 
         transparent 0%, 
@@ -51,3 +75,4 @@
 }
 
 .mesAvatarWrapper { display: contents !important; }
+
